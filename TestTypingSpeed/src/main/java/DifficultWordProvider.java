@@ -12,11 +12,13 @@ public class DifficultWordProvider implements WordProvider {
     public List<String> getWords() {
         List<String> words = new ArrayList<>();
         try {
+            //get a list of all words from the RandomWords.txt file
             words = Files.readAllLines(Paths.get(System.getProperty("user.dir") + "/resources/RandomWords.txt"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        //create a list of difficult words from the list of all words
         List<String> difficultWords = new ArrayList<>();
         for (String word : words) {
             if (word.length() > 8) {
@@ -24,7 +26,8 @@ public class DifficultWordProvider implements WordProvider {
             }
         }
 
-        Collections.shuffle(difficultWords);
+        Collections.shuffle(difficultWords); //shuffle the list of difficult words
+        //return the first 200 difficult words
         return difficultWords.subList(0, Math.min(difficultWords.size(), 200));
     }
 }
