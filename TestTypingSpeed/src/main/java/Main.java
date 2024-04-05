@@ -30,11 +30,13 @@ public class Main {
                 System.out.println("Invalid option. Exiting...");
                 return;
         }
-        System.out.println(paragraphProvider.getSentences());
-//
-//        //create a new typing test with the selected words
-//        TypingTest typingTest = new TypingTest(wordProvider);
-//        typingTest.startTest();
+//        System.out.println(paragraphProvider.getSentences());
 
+        //create a new typing test with the selected words
+        TypingTest typingTest = new TypingTest(paragraphProvider);
+        Result result = typingTest.startTest();
+
+        //print the result of the typing test
+        System.out.println("Your typing speed is " + result.getSpeed() + " words per minute with an accuracy of " + result.getAccuracy() + "%.");
     }
 }
