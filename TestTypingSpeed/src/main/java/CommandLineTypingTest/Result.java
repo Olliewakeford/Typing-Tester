@@ -1,31 +1,19 @@
 package CommandLineTypingTest;
 
-public class Result {
-    private final int speed;
-    private final int accuracy;
-    private final int totalWords;
-    private final int correctWords;
 
-    public Result(int speed, int accuracy, int totalWords, int correctWords) {
-        this.speed = speed;
-        this.accuracy = accuracy;
-        this.totalWords = totalWords;
-        this.correctWords = correctWords;
+public record Result(long testTime, int totalWords, int correctWords) {
+
+    // Method to calculate the speed of the user as words per minute
+    public int calculateSpeed() {
+        int seconds = (int) Math.floor((double) testTime / 1000);
+        return (int) ((double) correctWords / seconds * 60);
     }
 
-    public int getSpeed() {
-        return speed;
+    // return the percentage of words spelt perfectly
+    public int calculateAccuracy() {
+        return (int) ((double) correctWords / totalWords * 100);
     }
 
-    public int getAccuracy() {
-        return accuracy;
-    }
 
-    public int getTotalWords() {
-        return totalWords;
-    }
 
-    public int getCorrectWords() {
-        return correctWords;
-    }
 }
