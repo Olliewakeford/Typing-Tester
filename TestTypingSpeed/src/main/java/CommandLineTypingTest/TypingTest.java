@@ -17,11 +17,14 @@ public class TypingTest {
         int totalWords = 0;
         int correctWords = 0;
 
+        // Display the instructions to the user
         System.out.println("Type the following sentences, including capitalization and punctuation.");
         System.out.println("You have 60 seconds. Press Enter after each sentence.");
         System.out.println("Finish the sentence you are on when time expires, then press Enter to see your results.");
-        long startTime = System.currentTimeMillis();
+        System.out.println("Press Enter to start the test.");
         Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+        long startTime = System.currentTimeMillis();
 
         for (String sentence : sentences) {
             System.out.println(sentence); //print the sentence for the user to type
