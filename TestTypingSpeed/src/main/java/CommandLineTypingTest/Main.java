@@ -1,6 +1,7 @@
-package main.java;
+package CommandLineTypingTest;
 
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {

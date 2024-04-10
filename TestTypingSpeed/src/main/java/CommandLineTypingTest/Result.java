@@ -1,4 +1,4 @@
-package main.java;
+package CommandLineTypingTest;
 
 public class Result {
     private final int speed;

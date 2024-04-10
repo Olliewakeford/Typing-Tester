@@ -1,4 +1,4 @@
-package main.java;
+package CommandLineTypingTest;
 
 import java.util.List;
 
