@@ -36,8 +36,6 @@ public class Main {
         //create a new typing test with the selected words
         TypingTest typingTest = new TypingTest(paragraphProvider);
         Result result = typingTest.startTest();
-
-        //print the result of the typing test
-        System.out.println("Your typing speed is " + result.getSpeed() + " words per minute with an accuracy of " + result.getAccuracy() + "%.");
+        System.out.println(result.toString());
     }
 }
