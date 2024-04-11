@@ -17,7 +17,7 @@ public record Result(long testTime, int correctWords, int totalWords) {
     // Method to display the result of the test
     @Override
     public String toString() {
-        double testTimeInMinutes = testTime / 60000.0;
+        double testTimeInMinutes = Math.round(testTime / 60000.0 * 100.0) / 100.0;
         int speed = calculateSpeed();
         int accuracy = calculateAccuracy();
 
