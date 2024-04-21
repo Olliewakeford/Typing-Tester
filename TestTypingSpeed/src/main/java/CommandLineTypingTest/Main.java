@@ -6,6 +6,7 @@ import CommandLineTypingTest.Testers.TimeLimitTypingTestSentences;
 import CommandLineTypingTest.Testers.TimeLimitTypingTestWords;
 import CommandLineTypingTest.Testers.TypingTester;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -121,8 +122,17 @@ public class Main {
 
             case 2:
                 System.out.println("Select the topic of the paragraph:");
-                System.out.println("1. ");
-                System.out.println("2. ");
+                System.out.println("1. Java Overview");
+                System.out.println("2. Reflection API");
+                System.out.println("3. The Java Platform");
+                System.out.println("4. Generics in Java");
+                System.out.println("5. Annotations in Java");
+                System.out.println("6. Classes and Class Loaders");
+                System.out.println("7. Service Loaders and Providers");
+                System.out.println("8. Java Bytecode");
+                System.out.println("9. Java Native Interface (JNI)");
+                System.out.println("10 Java Native Access (JNA)");
+                System.out.println("11. Foreign Functions and Memory");
 
                 int topic = scanner.nextInt();
 
