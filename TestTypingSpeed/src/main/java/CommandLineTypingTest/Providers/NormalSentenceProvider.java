@@ -1,4 +1,4 @@
-package CommandLineTypingTest;
+package CommandLineTypingTest.Providers;
 
 
 import java.util.*;
@@ -7,7 +7,7 @@ import java.io.IOException;
 
 // Implementation of SentenceProvider
 // Normal sentences are sentences that make sense and are easy to type
-public class NormalSentenceProvider implements ParagraphProvider {
+public class NormalSentenceProvider implements TextToTypeProvider {
     List<String> sentences;
 
     public NormalSentenceProvider() {
@@ -21,7 +21,7 @@ public class NormalSentenceProvider implements ParagraphProvider {
     }
 
     @Override
-    public List<String> getSentences() {
+    public List<String> getTextToType() {
         Collections.shuffle(sentences); //shuffle the list of all words
 
         //return the first 20 sentences words

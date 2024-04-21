@@ -1,24 +1,29 @@
-package CommandLineTypingTest;
+package CommandLineTypingTest.Testers;
+
+// Import the necessary Java classes
+import CommandLineTypingTest.Providers.TextToTypeProvider;
+import CommandLineTypingTest.Result;
 
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.*;
 
-public class TypingTest {
-    // The ParagraphProvider instance used to fetch sentences for the typing test
-    private final ParagraphProvider paragraphProvider;
+public class TimeLimitTypingTestSentences implements TypingTester {
+    // The TextToTypeProvider instance used to fetch sentences for the typing test
+    private final TextToTypeProvider textToTypeProvider;
     // The duration of the test in milliseconds
-    private final long TESTTIME = 30000;
+    private final long testLength;
 
-    // Constructor that initializes the paragraphProvider instance
-    public TypingTest(ParagraphProvider paragraphProvider) {
-        this.paragraphProvider = paragraphProvider;
+    // Constructor that initializes the textToTypeProvider instance
+    public TimeLimitTypingTestSentences(TextToTypeProvider textToTypeProvider, long testLength) {
+        this.textToTypeProvider = textToTypeProvider;
+        this.testLength = testLength;
     }
 
-    // Method to start the typing test
+    // Method to start the typing test which prints sentences at a time
     public Result startTest() {
         // Fetch the sentences for the test
-        List<String> sentences = paragraphProvider.getSentences();
+        List<String> sentences = textToTypeProvider.getTextToType();
         // Initialize counters for the total words and correct words typed by the user
         int totalWords = 0;
         int correctWords = 0;
@@ -43,7 +48,7 @@ public class TypingTest {
         for (String sentence : sentences) {
             // Calculate the remaining time for the test
             long currentTime = System.currentTimeMillis();
-            long remainingTime = TESTTIME - (currentTime - startTime);
+            long remainingTime = testLength - (currentTime - startTime);
 
             // Break the loop if the test time has been reached
             if (remainingTime <= 0) {
@@ -69,9 +74,12 @@ public class TypingTest {
                         correctWords++;
                     }
                 }
+
             } catch (TimeoutException e) {
+                // handle the case where the time limit is reached
                 System.out.println("\nTime's up!");
                 break;
+
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
@@ -79,6 +87,7 @@ public class TypingTest {
 
         // Shutdown the executor
         executor.shutdownNow();
+
         // Calculate the actual test time
         long actualTestTime = System.currentTimeMillis() - startTime;
 
