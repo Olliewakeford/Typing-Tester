@@ -6,8 +6,8 @@ import java.util.*;
 import java.nio.file.*;
 import java.io.IOException;
 
-// Implementation of WordProvider to provide random words for user to type
-// Random words do not form sentences which make sense
+// Implementation of TextToTypeProvide to provide random sentences for user to type
+// Random sentences are sentences that do not make sense
 // This makes them more difficult to type
 public class RandomSentenceProvider implements TextToTypeProvider {
     List<String> words;
@@ -21,6 +21,7 @@ public class RandomSentenceProvider implements TextToTypeProvider {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public List<String> getTextToType() {

@@ -2075,10 +2075,6 @@ bison
 bisque
 bistro
 bit
-bitch
-bitches
-bitching
-bitchy
 bite
 bites
 biting
@@ -5389,8 +5385,6 @@ cummerbund
 cumulative
 cuneiform
 cunning
-cunt
-cunts
 cup
 cupboard
 cupboards
@@ -6208,10 +6202,8 @@ dibs
 dice
 diced
 dicey
-dick
 dickens
 dickie
-dicking
 dicks
 dicky
 dictate
@@ -9190,13 +9182,6 @@ fry
 fryer
 frying
 fuchsia
-fuck
-fucked
-fucker
-fuckers
-fucking
-fucks
-fuckup
 fudge
 fudged
 fudging
@@ -10892,7 +10877,6 @@ horsemen
 horsepower
 horseradish
 horses
-horseshit
 horsey
 horsing
 horticulture
@@ -14851,8 +14835,6 @@ nicotine
 niece
 nieces
 nifty
-nigger
-niggers
 nigh
 night
 nightcap
@@ -20003,11 +19985,6 @@ shirking
 shirt
 shirtless
 shirts
-shit
-shithead
-shits
-shitting
-shitty
 shiv
 shiva
 shiver

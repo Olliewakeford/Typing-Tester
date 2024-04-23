@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+// Test the user on a paragraph of a specified java topic
 public class GivenTopicTextToTypeProvider implements TextToTypeProvider {
     int topic;
     public GivenTopicTextToTypeProvider(int topic) {
@@ -19,9 +20,8 @@ public class GivenTopicTextToTypeProvider implements TextToTypeProvider {
         List<String> paragraph = new ArrayList<>(); //List containing one paragraph of text
         String fileName = convertKeyToFileName(topic);
         String path = "/resources/JavaParagraphs/" + fileName;
-//        System.out.println("Path: " + path);
         try {
-            //get a list of all sentences from the NormalSentences.txt file
+            //get a list of all sentences from the file with the respective topic name
             paragraph = Files.readAllLines(Paths.get(System.getProperty("user.dir") + path));
         } catch (IOException e) {
             e.printStackTrace();
@@ -29,6 +29,7 @@ public class GivenTopicTextToTypeProvider implements TextToTypeProvider {
         return paragraph;
     }
 
+    //Method to convert the key to the file name where topic paragraph is stored
     private String convertKeyToFileName(int key) {
         return switch (key) {
             case 1 -> "JavaOverview.txt";

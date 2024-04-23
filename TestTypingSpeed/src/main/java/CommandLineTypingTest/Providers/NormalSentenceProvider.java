@@ -5,8 +5,8 @@ import java.util.*;
 import java.nio.file.*;
 import java.io.IOException;
 
-// Implementation of SentenceProvider
-// Normal sentences are sentences that make sense and are easy to type
+// Implementation of TextToTypeProvider to provide normal sentences for user to type
+// Normal sentences are sentences that make sense, making them relatively easier to type
 public class NormalSentenceProvider implements TextToTypeProvider {
     List<String> sentences;
 
@@ -20,11 +20,12 @@ public class NormalSentenceProvider implements TextToTypeProvider {
         }
     }
 
+    //Return a list of 20 normal sentences
     @Override
     public List<String> getTextToType() {
-        Collections.shuffle(sentences); //shuffle the list of all words
+        Collections.shuffle(sentences); //shuffle the list of all sentences
 
-        //return the first 20 sentences words
+        //return the first 20 sentences from the shuffled list
         return sentences.subList(0, Math.min(sentences.size(), 20));
     }
 

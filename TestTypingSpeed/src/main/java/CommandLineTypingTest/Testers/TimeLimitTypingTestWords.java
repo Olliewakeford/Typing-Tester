@@ -6,6 +6,7 @@ import CommandLineTypingTest.Result;
 import java.util.List;
 import java.util.Scanner;
 
+// TypingTester implementation that tests the user on typing words with a time limit
 public class TimeLimitTypingTestWords implements TypingTester {
     private final TextToTypeProvider textToTypeProvider;
     private final long testLength;
@@ -29,24 +30,26 @@ public class TimeLimitTypingTestWords implements TypingTester {
 
         long startTime = System.currentTimeMillis();
 
+
         for (String word : words) {
             long currentTime = System.currentTimeMillis();
             long elapsedTime = currentTime - startTime;
-            if (elapsedTime >= testLength) {
+            if (elapsedTime >= testLength) { // Break the loop if the test time has been reached
                 System.out.println("\nTime's up!");
                 break;
             }
 
+            //print word to type
             System.out.println(word);
             String inputWord = scanner.nextLine();
             totalWords++;
 
-            if (word.equals(inputWord)) {
+            if (word.equals(inputWord)) { // check if the word is typed correctly
                 correctWords++;
             }
         }
 
-        long actualTestTime = System.currentTimeMillis() - startTime;
+        long actualTestTime = System.currentTimeMillis() - startTime; // exact length of test
 
         return new Result(actualTestTime, correctWords, totalWords);
     }

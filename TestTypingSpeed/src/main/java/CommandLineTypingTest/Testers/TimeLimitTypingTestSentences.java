@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.*;
 
+// TypingTester implementation that tests the user on typing sentences with a time limit
 public class TimeLimitTypingTestSentences implements TypingTester {
     // The TextToTypeProvider instance used to fetch sentences for the typing test
     private final TextToTypeProvider textToTypeProvider;

@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+// Implementation of TextToTypeProvider to provide single words for user to type
+// Single words are either random words or nonsense words
 public class SingleWordsProvider implements TextToTypeProvider {
     List<String> words;
 

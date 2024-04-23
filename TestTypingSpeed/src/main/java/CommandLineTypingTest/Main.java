@@ -1,17 +1,18 @@
 package CommandLineTypingTest;
 
+// import other classes within the command line typing test package
 import CommandLineTypingTest.Providers.*;
 import CommandLineTypingTest.Testers.ParagraphTester;
 import CommandLineTypingTest.Testers.TimeLimitTypingTestSentences;
 import CommandLineTypingTest.Testers.TimeLimitTypingTestWords;
 import CommandLineTypingTest.Testers.TypingTester;
 
-import java.sql.SQLOutput;
+// import necessary java classes
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); //Scanner object to get user input from the console
 
         //Get the user's choice for the typing test of timed test vs a test which ends after completing a paragraph
         System.out.println("Select your options for the typing test (just enter the number):");
@@ -20,8 +21,8 @@ public class Main {
 
         int testType = scanner.nextInt();
 
-        TypingTester typingTest;
-        TextToTypeProvider textToTypeProvider;
+        TextToTypeProvider textToTypeProvider; // TextToTypeProvider object for different types of text to type
+        TypingTester typingTest; // TypingTester object for different types of typing tests
 
         // switch case to select the type of test
         switch (testType) {
@@ -32,7 +33,6 @@ public class Main {
                 System.out.println("1. 30 seconds");
                 System.out.println("2. 1 minute");
                 System.out.println("3. 3 minutes");
-//                System.out.println("4. Custom time (in minutes)");
 
                 int testLengthKey = scanner.nextInt();
                 long textLengthMS = convertToMillis(testLengthKey); // Convert the selected test length to milliseconds
@@ -94,12 +94,14 @@ public class Main {
                         int format2 = scanner.nextInt();
 
                         switch (format2) {
+                            //one word at a time
                             case 1:
                                 textToTypeProvider = new SingleWordsProvider(1);
                                 // Create the typing test which prints one random word at a time
                                 typingTest = new TimeLimitTypingTestWords(textToTypeProvider, textLengthMS);
                                 break;
 
+                            //one sentence at a time
                             case 2:
                                 textToTypeProvider = new NonsenseSentenceProvider();
                                 // Create the typing test which prints sentences at a time
@@ -117,10 +119,10 @@ public class Main {
                         System.out.println("Invalid option. Exiting...");
                         return;
                 }
-
                 break;
 
             case 2:
+                // Get the topic of the paragraph from a list of Java themed topics
                 System.out.println("Select the topic of the paragraph:");
                 System.out.println("1. Java Overview");
                 System.out.println("2. Reflection API");
@@ -146,12 +148,11 @@ public class Main {
                 return;
         }
 
-        Result result = typingTest.startTest();
-        System.out.println(result.toString());
+        Result result = typingTest.startTest(); // Start the typing test and get the result
+        System.out.println(result.toString()); // Print the result of the typing test
     }
 
     public static long convertToMillis(int textLengthKey) {
-        // Convert the selected test length to milliseconds
         long testLength = 0;
         // 1 represents 30 seconds, 2 represents 1 minute, 3 represents 3 minutes
         if (textLengthKey == 1) {

@@ -6,13 +6,13 @@ import CommandLineTypingTest.Result;
 import java.util.List;
 import java.util.Scanner;
 
+// TypingTester implementation that tests the user on typing an entire paragraph. No time limit.
 public class ParagraphTester implements TypingTester {
     TextToTypeProvider textToTypeProvider;
 
     public ParagraphTester(TextToTypeProvider textToTypeProvider) {
         this.textToTypeProvider = textToTypeProvider;
     }
-
 
     // Test which prints one paragraph and ends after the user completes typing it
     @Override
@@ -39,9 +39,9 @@ public class ParagraphTester implements TypingTester {
         // Calculate the total number of words and the number of correct words
         String[] originalWords = paragraph.split("\\s+"); // Match any whitespace
         String[] typedWords = userInput.split("\\s+");
-        int totalWords = originalWords.length;
-        int correctWords = 0;
-        for (int i = 0; i < totalWords; i++) {
+        int totalWords = originalWords.length; // total number of words attempted to type
+        int correctWords = 0; // number of words typed perfectly
+        for (int i = 0; i < typedWords.length; i++) {
             if (originalWords[i].equals(typedWords[i])) {
                 correctWords++;
             }
