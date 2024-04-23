@@ -7,22 +7,30 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-// Implementation of TextToTypeProvider to provide single words for user to type
-// Single words are either random words or nonsense words
+/**
+ * Implementation of TextToTypeProvider to provide single words for user to type.
+ * Single words are either random words or nonsense words.
+ */
 public class SingleWordsProvider implements TextToTypeProvider {
     List<String> words;
 
-    //Constructor for SingleWordsProvider where int wordsType is the type of words to be provided
-    //0 for random words
-    //1 for nonsense words
+
+    /**
+     * Constructs a new SingleWordsProvider where int wordsType is the type of words to be provided.
+     * 0 for random words.
+     * 1 for nonsense words.
+     *
+     * @param wordsType the type of words to be provided
+     */
     public SingleWordsProvider(int wordsType) {
         words = new ArrayList<>();
+
         try {
+            // 0 for RandomWords.txt, 1 for NonsenseWords.txt
             if (wordsType == 0) {
                 //get a list of all words from the RandomWords.txt file
                 words = Files.readAllLines(Paths.get(System.getProperty("user.dir") + "/resources/RandomWords.txt"));
-            }
-            else if (wordsType == 1) {
+            } else if (wordsType == 1) {
                 //get a list of all words from the Nonsense.txt file
                 words = Files.readAllLines(Paths.get(System.getProperty("user.dir") + "/resources/NonsenseWords.txt"));
             }
@@ -31,6 +39,12 @@ public class SingleWordsProvider implements TextToTypeProvider {
         }
     }
 
+
+    /**
+     * Returns a list of 1000 words for the user to type.
+     *
+     * @return a list of words for the user to type
+     */
     @Override
     public List<String> getTextToType() {
         Collections.shuffle(words); //shuffle the list of all words

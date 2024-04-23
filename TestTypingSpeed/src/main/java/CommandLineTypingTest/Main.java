@@ -10,7 +10,17 @@ import CommandLineTypingTest.Testers.TypingTester;
 // import necessary java classes
 import java.util.Scanner;
 
+/**
+ * Main class for the CommandLineTypingTest application.
+ * This class handles user input to configure and start the typing test.
+ */
 public class Main {
+    /**
+     * The main method for the CommandLineTypingTest application.
+     * This method handles user input to configure and start the typing test.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); //Scanner object to get user input from the console
 
@@ -152,6 +162,12 @@ public class Main {
         System.out.println(result.toString()); // Print the result of the typing test
     }
 
+    /**
+     * Converts the selected test length to milliseconds.
+     *
+     * @param textLengthKey the key representing the selected test length
+     * @return the test length in milliseconds
+     */
     public static long convertToMillis(int textLengthKey) {
         long testLength = 0;
         // 1 represents 30 seconds, 2 represents 1 minute, 3 represents 3 minutes

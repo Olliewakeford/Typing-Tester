@@ -3,8 +3,17 @@ package CommandLineTypingTest;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Class to generate a random sentence from a list of words.
+ */
 public class RandomSentence {
-    //Method to create a random sentence from a list of words
+    /**
+     * Method to create a random sentence from a list of words.
+     * The sentence length varies and the first word is capitalized.
+     *
+     * @param words the list of words to create the sentence from
+     * @return a random sentence created from the words list
+     */
     public static String createRandomSentence(List<String> words) {
         String sentence = "";
 

@@ -6,15 +6,26 @@ import CommandLineTypingTest.Result;
 import java.util.List;
 import java.util.Scanner;
 
-// TypingTester implementation that tests the user on typing an entire paragraph. No time limit.
+/**
+ * TypingTester implementation that tests the user on typing an entire paragraph. No time limit.
+ */
 public class ParagraphTester implements TypingTester {
     TextToTypeProvider textToTypeProvider;
 
+    /**
+     * Constructs a new ParagraphTester with the specified TextToTypeProvider.
+     *
+     * @param textToTypeProvider the provider for the text to type
+     */
     public ParagraphTester(TextToTypeProvider textToTypeProvider) {
         this.textToTypeProvider = textToTypeProvider;
     }
 
-    // Test which prints one paragraph and ends after the user completes typing it
+    /**
+     * Starts the test, which prints one paragraph and ends after the user completes typing it.
+     *
+     * @return the result of the test
+     */
     @Override
     public Result startTest() {
         // Get the paragraph to type
@@ -23,7 +34,7 @@ public class ParagraphTester implements TypingTester {
 
         // Print the paragraph
         System.out.println(paragraph);
-        System.out.println("Press Enter to start the test.");
+        System.out.println("\nPress Enter to start the test.");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine(); // Wait for the user to press Enter
 

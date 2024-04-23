@@ -8,20 +8,31 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.*;
 
-// TypingTester implementation that tests the user on typing sentences with a time limit
+/**
+ * TypingTester implementation that tests the user on typing sentences at a time with a time limit.
+ */
 public class TimeLimitTypingTestSentences implements TypingTester {
     // The TextToTypeProvider instance used to fetch sentences for the typing test
     private final TextToTypeProvider textToTypeProvider;
     // The duration of the test in milliseconds
     private final long testLength;
 
-    // Constructor that initializes the textToTypeProvider instance
+    /**
+     * Constructs a new TimeLimitTypingTestSentences with the specified TextToTypeProvider and test length.
+     *
+     * @param textToTypeProvider the provider for the text to type
+     * @param testLength the length of the test in milliseconds
+     */
     public TimeLimitTypingTestSentences(TextToTypeProvider textToTypeProvider, long testLength) {
         this.textToTypeProvider = textToTypeProvider;
         this.testLength = testLength;
     }
 
-    // Method to start the typing test which prints sentences at a time
+    /**
+     * Starts the test, which prints sentences at a time and ends after the user completes typing it or the time limit is reached.
+     *
+     * @return the result of the test
+     */
     public Result startTest() {
         // Fetch the sentences for the test
         List<String> sentences = textToTypeProvider.getTextToType();
