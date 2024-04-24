@@ -1,0 +1,3 @@
+in TestTypingSpeedDirectory
+mvn clean install
+java -jar target/TestTypingSpeed-1.0-SNAPSHOT.jar
