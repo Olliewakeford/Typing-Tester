@@ -18,7 +18,7 @@ public class RandomSentence {
         String sentence = "";
 
         Random rand = new Random();
-        int numWordsInSentence = rand.nextInt(10) + 5; //to vary sentence length
+        int numWordsInSentence = rand.nextInt(5) + 5; //to vary sentence length
 
         for (int i = 0; i < numWordsInSentence; i++) {
             int index = rand.nextInt(words.size()); //choose a random word from the list of all words
